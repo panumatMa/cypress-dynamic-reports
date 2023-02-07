@@ -1,4 +1,4 @@
-import { authentication, clickReport } from "../support/utils";
+import { authentication, checkReportHeaderName, checkReportTypeIcon, clickReport, REPORT_TYPE } from "../../support/utils";
 
 describe("Tote Asset Location", () => {
   beforeEach(() => {
@@ -7,6 +7,16 @@ describe("Tote Asset Location", () => {
     cy.get("#side-menu > li > a[href='/reports']").click();
 
     clickReport("Tote Asset Location");
+  });
+
+  describe("Modal", () => {
+    it('should show right header', () => {
+      checkReportHeaderName("Export Tote Asset Location Report")
+    });
+
+    it('should show right report type', () => {
+      checkReportTypeIcon(REPORT_TYPE.DAY_MINUS_ONE)
+    })
   });
 
   describe("Validate File Type Criteria", () => {

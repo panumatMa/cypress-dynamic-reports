@@ -1,4 +1,4 @@
-import { authentication, clickReport } from "../support/utils";
+import { authentication, checkReportHeaderName, checkReportTypeIcon, clickReport } from "../../support/utils";
 
 describe("Money In", () => {
   beforeEach(() => {
@@ -7,6 +7,16 @@ describe("Money In", () => {
     cy.get("#side-menu > li > a[href='/reports']").click();
 
     clickReport("Money In");
+  });
+
+  describe("Modal", () => {
+    it('should show right header', () => {
+      checkReportHeaderName("Money In Report");
+    })
+
+    it('should show right report type', () => {
+      checkReportTypeIcon(null);
+    })
   });
 
   describe("Validate Date Criteria", () => {
