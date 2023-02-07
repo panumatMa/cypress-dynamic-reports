@@ -6,3 +6,4 @@
 3. Open Cypress `npx cypress open`
 4. Install Typescript `npm i typescript`
 5. Create Typescript config file`npx tsc --init`
+6. Install @cypress/chrome-recorder `npm install -g @cypress/chrome-recorder`

@@ -4,7 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "open": "npx cypress open",
+    "run:headless": "npx cypress run --headless --env configFile=greenapple",
+    "run:headless:dev": "npx cypress run --headless --env configFile=greenapple",
+    "open:local": "npx cypress open --env configFile=localhost",
+    "open:green": "npx cypress open --env configFile=greenapple",
+    "open:dev": "npx cypress open --env configFile=develop",
+    "gen": "npx @cypress/chrome-recorder ./record.json -o=./cypress/e2e && rm ./record.json && mv ./cypress/e2e/record.cy.js ./cypress/e2e/record.cy.ts"
   },
   "repository": {
     "type": "git",
@@ -17,9 +23,10 @@
   },
   "homepage": "https://github.com/panumatMa/cypress-dynamic-reports#readme",
   "devDependencies": {
-    "cypress": "^12.5.1"
+    "cypress": "^12.5.1",
+    "typescript": "^4.9.5"
   },
   "dependencies": {
-    "typescript": "^4.9.5"
+    "@types/cypress": "^1.1.3"
   }
 }
