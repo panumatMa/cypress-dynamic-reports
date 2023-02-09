@@ -1,4 +1,4 @@
-import { authentication, checkReportHeaderName, checkReportTypeIcon, clickReport } from "../../support/utils";
+import { authentication, checkReportHeaderName, checkReportTypeIcon, clickReport } from "../../../support/utils";
 
 describe("Money In", () => {
   beforeEach(() => {

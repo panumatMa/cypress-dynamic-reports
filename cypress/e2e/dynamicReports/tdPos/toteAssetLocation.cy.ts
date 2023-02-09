@@ -1,4 +1,4 @@
-import { authentication, checkReportHeaderName, checkReportTypeIcon, clickReport, REPORT_TYPE } from "../../support/utils";
+import { authentication, checkReportHeaderName, checkReportTypeIcon, clickReport, REPORT_TYPE } from "../../../support/utils";
 
 describe("Tote Asset Location", () => {
   beforeEach(() => {

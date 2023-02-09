@@ -1,5 +1,6 @@
 {
     "baseUrl": "http://localhost:6969/",
-    "username_login": "",
-    "password_login": ""
+    "username_login": "admin.gr",
+    "password_login": "TdGre@4321",
+    "endpoint": "https://api-green.tdshop.io"
 }
