@@ -32,9 +32,9 @@ export const clickReport = (reportName: string) => {
 };
 
 export const checkReportHeaderName = (name: string) => {
-  cy.get("div.modal-content > .modal-header > .modal-title").should($div => {
+  cy.get("div.modal-content > .modal-header > .modal-title").should(($div) => {
     expect($div.text()).to.equal(name);
-  })
+  });
 };
 
 export const checkReportTypeIcon = (type: REPORT_TYPE | null) => {
@@ -91,14 +91,21 @@ export const assignValueFileType = () => {
   ).click();
 };
 
-export const assignValueSelectMultipleDropdown = (name: string) => {
+export const assignValueSelectMultipleDropdown = (
+  name: string,
+  index?: number
+) => {
   cy.get(`[data-id=${name}] > div > div > div.ng-input`).click();
 
-  cy.get("#item-0").click();
+  if (index) {
+    cy.get(`#item-${index}`).click();
+  } else {
+    cy.get("#item-0").click();
 
-  cy.get("#item-1").click();
+    cy.get("#item-1").click();
 
-  cy.get("#item-2").click();
+    cy.get("#item-2").click();
+  }
 
   cy.get(`[data-id=${name}] > div > span`).click();
 };
@@ -134,9 +141,14 @@ export const assignValueDropdownWithTemplateOption = (
   index: number = 1
 ) => {
   cy.get(`#${name} > div > span.ng-arrow-wrapper`).click();
-  cy.get(`[data-id=${name}] ng-dropdown-panel div.ng-option:nth-child(${index})`).click();
+  cy.get(
+    `[data-id=${name}] ng-dropdown-panel div.ng-option:nth-child(${index})`
+  ).click();
 };
 
-export const datePatternDash = (fieldName:string) => new RegExp(`${fieldName}=\\d{4}-\\d{2}-\\d{2}`);
-export const datePatternDateTime = (fieldName:string) => new RegExp(`${fieldName}=\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z`);
-
+export const datePatternDash = (fieldName: string) =>
+  new RegExp(`${fieldName}=\\d{4}-\\d{2}-\\d{2}`);
+export const datePatternDateTime = (fieldName: string) =>
+  new RegExp(
+    `${fieldName}=\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z`
+  );

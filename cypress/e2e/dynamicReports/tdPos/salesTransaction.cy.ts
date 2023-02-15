@@ -6,10 +6,8 @@ import {
   authentication,
   checkReportHeaderName,
   checkReportTypeIcon,
-  clickReport,
-  datePatternDash,
-  REPORT_TYPE,
-  testRequest,
+  clickReport, REPORT_TYPE,
+  testRequest
 } from "../../../support/utils";
 
 describe("Sales Transaction", () => {
@@ -19,14 +17,14 @@ describe("Sales Transaction", () => {
     clickReport("Sales Transaction");
   });
 
-  xdescribe("Modal", () => {
+  describe("Modal", () => {
     it("should show right header and icon", () => {
       checkReportHeaderName("Export Sales Transaction Report");
       checkReportTypeIcon(REPORT_TYPE.DAY_MINUS_ONE);
     });
   });
 
-  xdescribe("Validate Date Criteria", () => {
+  describe("Validate Date Criteria", () => {
     beforeEach(() => {
       assignValueFileType();
       cy.get("#btnExport").should("be.disabled");
